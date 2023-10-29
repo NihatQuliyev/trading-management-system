@@ -1,0 +1,5 @@
+FROM openjdk:17
+EXPOSE 8080
+ARG JAR_FILE=build/libs/trading-management-service-0.0.1-SNAPSHOT.jar
+ADD ${JAR_FILE} trading.jar
+ENTRYPOINT ["java", "-jar","/trading.jar"]

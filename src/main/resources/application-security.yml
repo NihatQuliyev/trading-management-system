@@ -1,0 +1,5 @@
+application:
+  security:
+    secret-key: hmLHJV0Ep18StvzkEIt1ug==hmLHJV0Ep18StvzkEIt1ug==hmLHJV0Ep18StvzkEIt1ug==
+    access-token-expiration: 900000
+    refresh-token-expiration: 1800000

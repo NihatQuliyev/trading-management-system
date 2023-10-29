@@ -1,0 +1,24 @@
+version: "3"
+services:
+  trading:
+    image: trading.jar:latest
+    build:
+      context: ./
+      dockerfile: DockerFile
+    ports:
+      - "8080:8080"
+    volumes:
+      - /data/trading/trading-management-service/
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5433/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: root
+
+
+  localhost:
+      image: postgres:latest
+      ports:
+        - "5433:5433"
+      environment:
+        POSTGRES_DB: postgres
+        POSTGRES_PASSWORD: root
