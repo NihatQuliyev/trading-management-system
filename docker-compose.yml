@@ -7,18 +7,35 @@ services:
       dockerfile: DockerFile
     ports:
       - "8080:8080"
+
+    depends_on:
+      - db
+    networks:
+      - my_network
     volumes:
       - /data/trading/trading-management-service/
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5433/postgres
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/postgres
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: root
 
 
-  localhost:
-      image: postgres:latest
-      ports:
-        - "5433:5433"
-      environment:
-        POSTGRES_DB: postgres
-        POSTGRES_PASSWORD: root
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=#
+    ports:
+      - "5432:5432"
+    networks:
+      - my_network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+networks:
+    my_network:
+      driver: "bridge"
+
+volumes:
+    postgres_data:
