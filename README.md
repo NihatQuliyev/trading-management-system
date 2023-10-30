@@ -36,8 +36,8 @@
 
 **User**
 - http://localhost:8080/trading/user/registration [POST]
-- http://localhost:8080/trading/user/login [GET]
-- http://localhost:8080/trading/user/refresh-token [POST]
+- http://localhost:8080/trading/user/login [POST]
+- http://localhost:8080/trading/user/refresh-token [GET]
 
  **Category**
 - http://localhost:8080/trading/category/registration [POST]
