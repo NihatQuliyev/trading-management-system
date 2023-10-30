@@ -15,7 +15,6 @@ import static express.az.tradingmanagementservice.model.constant.Constants.*;
 @Validated
 public class UserRequestDto {
 
-    @NotBlank(message = NAME_IS_URGENT )
     private String name;
 
     @NotBlank(message = EMAIL_IS_URGENT)
